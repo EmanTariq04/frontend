@@ -3,23 +3,29 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
 
-const ConfirmRide = (props) => {
+const WaitingForDriver = (props) => {
   return (
     <div>
       {" "}
       <ExpandMoreIcon
         className="absolute top-0 left-4"
         onClick={() => {
-          props.setVehiclePanelOpen(false);
+          props.setWaitingForDriver(false);
         }}
       />
-      <h3 className="text-2xl font-semibold mb-5">Confirm Your Ride</h3>
-      <div className="flex gap-2 justify-between flex-col items-center">
+      <div className="flex items-center justify-between">
         <img
-          className="h-20"
+          className="h-12"
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2T80mE3molYgk4BCI9vmfXlAT8ebK1NdIBA&s"
           alt=""
         />
+        <div className="text-right">
+          <h2 className="text-lg font-medium">David</h2>
+          <h4 className="text-xl font-semibold -mt-1 -mb-1">MP04 1286 GH</h4>
+          <p className="text-sm text-gray-600">UBER CAR</p>
+        </div>
+      </div>
+      <div className="flex gap-2 justify-between flex-col items-center">
         <div className="w-full mt-5">
           <div className="flex items-center gap-5 p-3 border-b-1">
             <LocationOnIcon />
@@ -47,19 +53,9 @@ const ConfirmRide = (props) => {
             </div>
           </div>
         </div>
-        <button
-          onClick={() => {
-            props.setVehicleFound(true);
-            props.setConfirmRidePanel(false);
-            props.setWaitingForDriver(true);
-          }}
-          className="w-full mt-5 bg-green-600 font-semibold p-2 rounded-lg"
-        >
-          Confirm
-        </button>
       </div>
     </div>
   );
 };
 
-export default ConfirmRide;
+export default WaitingForDriver;
