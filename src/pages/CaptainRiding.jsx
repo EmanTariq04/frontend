@@ -1,9 +1,30 @@
-import React from "react";
+import React, { useRef, useState } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import { Link } from "react-router-dom";
 import LogoutIcon from "@mui/icons-material/Logout";
-
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import FinishRide from "../components/FinishRide";
 
 const CaptainRiding = () => {
+  const [finishRidePanel, setFinishRidePanel] = useState(false);
+  const finishRidePanelRef = useRef(null);
+
+  useGSAP(
+    function () {
+      if (finishRidePanel) {
+        gsap.to(finishRidePanelRef.current, {
+          transform: "translateY(0)",
+        });
+      } else {
+        gsap.to(finishRidePanelRef.current, {
+          transform: "translateY(100%)",
+        });
+      }
+    },
+    [finishRidePanel]
+  );
+
   return (
     <div className="h-screen">
       <div className="fixed p-6 top-0 flex items-center justify-between w-screen">
@@ -26,8 +47,29 @@ const CaptainRiding = () => {
           alt=""
         />
       </div>
-      <div className="h-1/5 p-6">
-   
+      <div
+        className="h-1/5 p-6 flex items-center justify-between relative bg-yellow-400"
+        onClick={() => {
+          setFinishRidePanel(true);
+        }}
+      >
+        {" "}
+        <ExpandMoreIcon
+          className="absolute top-0 left-42"
+          onClick={() => {
+            props.setRidePopupPanel(false);
+          }}
+        />
+        <h4 className="text-xl">4 KM Away</h4>
+        <button className=" text-white bg-green-600 font-semibold p-3 px-8 rounded-lg">
+          Complete Ride
+        </button>
+      </div>
+      <div
+        ref={finishRidePanelRef}
+        className="fixed w-full h-screen translate-y-full z-10 bottom-0 bg-white px-3 py-6 pt-12"
+      >
+        <FinishRide setFinishRidePanel={setFinishRidePanel} />
       </div>
     </div>
   );

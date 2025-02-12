@@ -53,12 +53,12 @@ const RidePopUp = (props) => {
             </div>
           </div>
         </div>
-        <div className="flex mt-5 w-full items-center justify-between">
+        <div className=" mt-5 w-full items-center flex justify-between">
           <button
             onClick={() => {
               props.setRidePopupPanel(false);
             }}
-            className="mt-1 text-gray-700 bg-gray-300 font-semibold p-3 px-8 rounded-lg"
+            className="text-gray-700 bg-gray-300 font-semibold p-3 px-8 rounded-lg"
           >
             Ignore
           </button>

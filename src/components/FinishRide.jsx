@@ -1,27 +1,21 @@
-import React, {useState} from "react";
+import React from "react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
 import { Link } from "react-router-dom";
 
-const ConfirmRidePopUp = (props) => {
-  const [otp, setOtp] = useState('')
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-  };
-
+const FinishRide = () => {
   return (
     <div>
       {" "}
       <ExpandMoreIcon
         className="absolute top-0 left-4"
         onClick={() => {
-          props.setRidePopupPanel(false);
+          props.setFinishRidePanel(false);
         }}
       />
       <h3 className="text-2xl font-semibold mb-5">
-        Confirm this ride to start
+        Finish this ride
       </h3>
       <div className="flex items-center justify-between p-3 bg-yellow-400 rounded-xl mt-4">
         <div className="flex items-center gap-3">
@@ -63,39 +57,18 @@ const ConfirmRidePopUp = (props) => {
           </div>
         </div>
         <div className="mt-6 w-full">
-          <form
-            onSubmit={(e) => {
-              submitHandler(e);
-            }}
-          >
-            <input
-            value={otp}
-            onChange={(e) => setOtp(e.target.value)}
-              type="text"
-              placeholder="Enter OTP"
-              className="bg-[#eee] px-6 py-4 text-base font-mono rounded-lg w-full mt-5"
-            />
+         
             <Link
-              to="/captain-riding"
-              onClick={() => {}}
-              className="w-full mt-5 flex justify-center text-white bg-green-600 font-semibold p-2 rounded-lg"
+              to="/captain-home"
+              className="w-full mt-5 flex text-lg justify-center text-white bg-green-600 font-semibold p-2 rounded-lg"
             >
-              Confirm
+              Finish Ride
             </Link>
-            <button
-              onClick={() => {
-                props.setConfirmRidePopupPanel(false);
-                props.setRidePopupPanel(false);
-              }}
-              className="w-full mt-4 text-white bg-red-600 font-semibold p-2 rounded-lg"
-            >
-              Cancel
-            </button>
-          </form>
+           <p className="mt-10 text-xs">Click on finish ride button if you have completed the payment.</p>
         </div>
       </div>
     </div>
   );
 };
 
-export default ConfirmRidePopUp;
+export default FinishRide;
