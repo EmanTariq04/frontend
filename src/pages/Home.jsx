@@ -126,7 +126,7 @@ const Home = () => {
       <div className="h-screen w-screen">
         <img
           className="h-full w-full object-cover"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRedasuuob8Bc9dAOHoge00tw52ZFnE_UrhGw&s"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnmmg2a2dj6_UxmOkeW2L_xC8rjhglT6hZyA&s"
           alt=""
         />
       </div>
@@ -199,7 +199,6 @@ const Home = () => {
           setConfirmRidePanel={setConfirmRidePanel}
           setVehicleFound={setVehicleFound}
           setWaitingForDriver={setWaitingForDriver}
-
         />
       </div>
 
